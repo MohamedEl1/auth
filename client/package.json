@@ -1,5 +1,5 @@
 {
-  "name": "fightpandemics-client",
+  "name": "fight-pandemics-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

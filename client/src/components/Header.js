@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuth0 } from "../react-auth0-spa";
+import { NavLink  } from 'react-router-dom';
 
 export const Header = () => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -19,8 +20,8 @@ export const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#about">About us</Nav.Link>
+                        <Nav.Item><NavLink exact to="/">Home</NavLink></Nav.Item>
+                        <Nav.Item><NavLink to="/about">About us</NavLink></Nav.Item>
                     </Nav>
                 </Navbar.Collapse>
                 <Nav>
