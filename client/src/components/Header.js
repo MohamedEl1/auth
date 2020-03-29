@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuth0 } from "../react-auth0-spa";
 
 export const Header = () => {
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
     return (
         <Navbar variant="light" bg="white" expand="lg">
             <Container>
@@ -22,8 +24,9 @@ export const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
                 <Nav>
-                    <Nav.Link href="#login">Login</Nav.Link>
-                    <Nav.Link href="#signup">Signup</Nav.Link>
+                    {!isAuthenticated && (<Nav.Link onClick={() => loginWithRedirect({})}>Login</Nav.Link>)}
+                    {!isAuthenticated && (<Nav.Link onClick={() => loginWithRedirect({})}>Signup</Nav.Link>)}
+                    {isAuthenticated && <Nav.Link onClick={() => logout()}>Log out</Nav.Link>}
                 </Nav>
             </Container>
         </Navbar>
