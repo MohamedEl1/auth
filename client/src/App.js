@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import NavBar from "./components/NavBar";
@@ -20,18 +20,9 @@ function App() {
   }
   return (
     <div className="App">
-         <Header /> 
+        
         {/* Don't forget to include the history module */}
-      <Router history={history}>
-        <header>
-        <NavBar />
-        </header>
-        <Switch>
-          <Route path="/" exact />
-          <Route path="/profile" component={Profile} />
-        </Switch>
-      </Router>
-        {/* <Router>
+        <BrowserRouter>
             <Header />
             <main>
                 <Container>
@@ -45,10 +36,10 @@ function App() {
                     </Switch>
                 </Container>
             </main>
-        // </Router> */}
+        </BrowserRouter>
     </div>
   );
 }
-        
+
 
 export default App;
